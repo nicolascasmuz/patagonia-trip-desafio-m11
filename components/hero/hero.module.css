@@ -1,0 +1,58 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  background-image: url("../../resources/patagonia-map.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.column-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+}
+
+.column-overlay h2 {
+  margin-bottom: 20px;
+}
+
+.column-overlay ul {
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
+.column-overlay li {
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--foreground);
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .column-overlay {
+    width: 80%;
+  }
+}

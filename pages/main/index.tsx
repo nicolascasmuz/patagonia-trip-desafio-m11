@@ -1,27 +1,17 @@
-import styles from "./footer.module.css";
-import Image from "next/image";
+import Mision from "components/mision";
+import FeaturedPlaces from "components/features-places";
+import Hero from "components/hero";
+import TravelersForm from "pages/travelers-form";
+import OwnersForm from "pages/owners-form";
 
-// MODO DE APLICAR CLASES A LAS ETIQUETAS:
-// className={styles["nombre-de-la-clase"]}
-
-/*  LAS IMÁGENES SE IMPORTAN CON LA ETIQUETA IMAGE DE LA SIGUIENTE FORMA:
-
-<Image
-    className={styles["nombre-de-la-clase"]}
-    src={pictureFile}
-    alt="picture-file"
-/>
-
-*/
-
-/* SINTAXIS DE COMPONENTE EN NEXTJS:
-
-export default function Component() {
+export default function Main() {
   return (
     <>
-      Hello world!
+      <Hero />
+      <Mision />
+      <OwnersForm />
+      <TravelersForm />
+      <FeaturedPlaces />
     </>
   );
 }
-
-*/

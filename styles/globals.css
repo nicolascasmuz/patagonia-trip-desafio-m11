@@ -46,3 +46,71 @@ a {
   margin: 0 auto;
   width: 100%;
 }
+
+.section {
+  padding: 100px 0;
+}
+
+.column-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-form form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.column-form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.column-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.column-content ul {
+  padding: 15px;
+}
+
+.column-content li {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .column-form,
+  .column-content {
+    align-items: center;
+  }
+}

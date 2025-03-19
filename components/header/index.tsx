@@ -1,27 +1,16 @@
-import styles from "./footer.module.css";
 import Image from "next/image";
+import styles from "./header.module.css";
+import logotipo from "../../resources/logo-patagonia-trip.png";
 
-// MODO DE APLICAR CLASES A LAS ETIQUETAS:
-// className={styles["nombre-de-la-clase"]}
-
-/*  LAS IMÁGENES SE IMPORTAN CON LA ETIQUETA IMAGE DE LA SIGUIENTE FORMA:
-
-<Image
-    className={styles["nombre-de-la-clase"]}
-    src={pictureFile}
-    alt="picture-file"
-/>
-
-*/
-
-/* SINTAXIS DE COMPONENTE EN NEXTJS:
-
-export default function Component() {
+export default function Header() {
   return (
-    <>
-      Hello world!
-    </>
+    <header className={styles.header}>
+      <Image
+        src={logotipo}
+        alt="Patagonia Trip Logo"
+        className={styles["proyect-logo"]}
+      />
+      <h1 className={styles["proyect-name"]}>Patagonia Trip</h1>
+    </header>
   );
 }
-
-*/

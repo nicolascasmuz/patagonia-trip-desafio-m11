@@ -1,0 +1,20 @@
+.owners-form {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+.owners-form h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.owners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .owners-grid {
+    grid-template-columns: 1fr;
+  }
+}

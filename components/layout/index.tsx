@@ -8,7 +8,7 @@ export default function Layout({ children }: any) {
       <div className="container">
         <Header />
       </div>
-      <div className="container">{children}</div>
+      <div>{children}</div>
       <div className="container">
         <Footer />
       </div>

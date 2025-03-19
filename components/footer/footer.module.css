@@ -1,0 +1,25 @@
+.footer {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: space-between;
+}
+
+.proyect-logo {
+  width: 50px;
+  height: auto;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socials li {
+  list-style: none;
+}

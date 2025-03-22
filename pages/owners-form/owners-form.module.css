@@ -18,3 +18,33 @@
     grid-template-columns: 1fr;
   }
 }
+
+.add-pet-pic {
+  display: block;
+  border-style: dotted;
+  border-width: 3px;
+  border-radius: 8px;
+  height: 180px;
+  width: 335px;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+.map-container .pin-map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map {
+  width: 100%;
+  height: 100%;
+}
+.pin-map {
+  width: 54px;
+  height: 100px;
+  z-index: 200;
+}

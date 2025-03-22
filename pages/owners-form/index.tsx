@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./owners-form.module.css";
 import { CreateOwner } from "lib/api";
@@ -13,9 +13,11 @@ const MAPBOX_TOKEN =
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 export default function OwnersForm() {
+  const [picFile, setPicFile] = useState(null);
+  const [preview, setPreview] = useState(uploadPic);
+
   const addPetPicRef = useRef<HTMLImageElement | null>(null);
   const dropzoneRef = useRef<Dropzone | null>(null);
-  let picFile: any = null;
   const mapContainerRef = useRef(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
@@ -36,14 +38,20 @@ export default function OwnersForm() {
       });
 
       dropzoneRef.current.on("addedfile", (file) => {
-        picFile = file;
-        const reader = new FileReader();
+        setPicFile(file);
+        const blobURL: any = URL.createObjectURL(file);
+        setPreview(blobURL);
+        /* picFile = file;
+        console.log("file: ", file);
+         const blobURL: any = URL.createObjectURL(file);
+        setPreview(blobURL);
+         const reader = new FileReader();
         reader.onload = (e) => {
           if (addPetPicRef.current && e.target) {
             addPetPicRef.current.src = e.target.result as string;
           }
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file); */
       });
     }
   }, []);
@@ -69,7 +77,7 @@ export default function OwnersForm() {
 
     console.log("newData: ", newData);
 
-    // CreateOwner(newData);
+    CreateOwner(newData);
   };
 
   return (
@@ -109,8 +117,10 @@ export default function OwnersForm() {
               <Image
                 ref={addPetPicRef}
                 className={styles["add-pet-pic"]}
-                src={uploadPic}
+                src={preview}
                 alt="upload-picture"
+                height={180}
+                width={335}
               />
               <label>Ubicación:</label>
               <div className={styles["map-container"]}>

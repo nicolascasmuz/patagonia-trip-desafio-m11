@@ -19,13 +19,14 @@
   }
 }
 
-.add-pet-pic {
+.add-pic {
   display: block;
   border-style: dotted;
   border-width: 3px;
   border-radius: 8px;
   height: 180px;
   width: 335px;
+  align-self: center;
 }
 
 .map-container {

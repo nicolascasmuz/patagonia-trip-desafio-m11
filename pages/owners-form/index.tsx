@@ -7,6 +7,7 @@ import uploadPic from "resources/upload-pic.png";
 import mapboxgl from "mapbox-gl";
 import pinMap from "resources/pin-map.png";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Layout from "components/layout";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoibmljb2xhc2Nhc211eiIsImEiOiJjbGlnazg2cjExZTdvM21tcWl6eGU5bDM0In0.EtaC4N7nb_NuwfddaKZaow";
@@ -16,7 +17,7 @@ export default function OwnersForm() {
   const [picFile, setPicFile] = useState(null);
   const [preview, setPreview] = useState(uploadPic);
 
-  const addPetPicRef = useRef<HTMLImageElement | null>(null);
+  const addPicRef = useRef<HTMLImageElement | null>(null);
   const dropzoneRef = useRef<Dropzone | null>(null);
   const mapContainerRef = useRef(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -31,8 +32,8 @@ export default function OwnersForm() {
       });
     }
 
-    if (addPetPicRef.current) {
-      dropzoneRef.current = new Dropzone(addPetPicRef.current, {
+    if (addPicRef.current) {
+      dropzoneRef.current = new Dropzone(addPicRef.current, {
         url: "/file/post",
         autoProcessQueue: false,
       });
@@ -41,17 +42,6 @@ export default function OwnersForm() {
         setPicFile(file);
         const blobURL: any = URL.createObjectURL(file);
         setPreview(blobURL);
-        /* picFile = file;
-        console.log("file: ", file);
-         const blobURL: any = URL.createObjectURL(file);
-        setPreview(blobURL);
-         const reader = new FileReader();
-        reader.onload = (e) => {
-          if (addPetPicRef.current && e.target) {
-            addPetPicRef.current.src = e.target.result as string;
-          }
-        };
-        reader.readAsDataURL(file); */
       });
     }
   }, []);
@@ -81,68 +71,75 @@ export default function OwnersForm() {
   };
 
   return (
-    <section className={styles["owners-form"] + " section"}>
-      <div className="container">
-        <h2>Hacete conocido para todos</h2>
-        <div className={styles["owners-grid"]}>
-          <div className="column-form">
-            <form onSubmit={HandleSubmit}>
-              <div className="form-group">
-                <label htmlFor="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="type">Tipo de establecimiento:</label>
-                <select name="type" id="type" required>
-                  <option value="">Elige una opción</option>
-                  <option value="parador">Parador</option>
-                  <option value="hospedaje">Hospedaje</option>
-                  <option value="camping">Camping</option>
-                  <option value="restaurante">Restaurante</option>
-                  <option value="mixto">Mixto</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="business">Nombre del establecimiento:</label>
-                <input type="text" id="business" name="business" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="services">Servicios:</label>
-                <input type="text" id="services" name="services" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="other">Otras características:</label>
-                <input type="text" id="other" name="other" required />
-              </div>
-              <Image
-                ref={addPetPicRef}
-                className={styles["add-pet-pic"]}
-                src={preview}
-                alt="upload-picture"
-                height={180}
-                width={335}
-              />
-              <label>Ubicación:</label>
-              <div className={styles["map-container"]}>
-                <Image
-                  className={styles["pin-map"]}
-                  src={pinMap}
-                  alt="test-map"
-                />
-                <div ref={mapContainerRef} className={styles["map"]}></div>
-              </div>
-              <button type="submit">Enviar</button>
-            </form>
-          </div>
-          <div className="column-content">
-            <p>
-              Eres dueño de un establecimiento? Hospedaje, camping, parador,
-              restaurante en la ruta...
-            </p>
-            <p>Puedes inscribirte aquí para promocionar tu negocio.</p>
+    <Layout>
+      <section className={styles["owners-form"] + " section"}>
+        <div className="container">
+          <h2>Hacete conocido para todos</h2>
+          <div className={styles["owners-grid"]}>
+            <div className="column-form">
+              <form onSubmit={HandleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="email">Correo electrónico:</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="type">Tipo de establecimiento:</label>
+                  <select name="type" id="type" required>
+                    <option value="">Elige una opción</option>
+                    <option value="parador">Parador</option>
+                    <option value="hospedaje">Hospedaje</option>
+                    <option value="camping">Camping</option>
+                    <option value="restaurante">Restaurante</option>
+                    <option value="mixto">Mixto</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="business">Nombre del establecimiento:</label>
+                  <input type="text" id="business" name="business" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="services">Servicios:</label>
+                  <input type="text" id="services" name="services" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="other">Otras características:</label>
+                  <input type="text" id="other" name="other" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="other">Foto del establecimiento:</label>
+                  <Image
+                    ref={addPicRef}
+                    className={styles["add-pic"]}
+                    src={preview}
+                    alt="upload-picture"
+                    height={180}
+                    width={335}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Ubicación:</label>
+                  <div className={styles["map-container"]}>
+                    <Image
+                      className={styles["pin-map"]}
+                      src={pinMap}
+                      alt="test-map"
+                    />
+                    <div ref={mapContainerRef} className={styles["map"]} />
+                  </div>
+                </div>
+                <button type="submit">Enviar</button>
+              </form>
+            </div>
+            <div className="column-content">
+              <p>
+                Eres dueño de un establecimiento? Hospedaje, camping, parador o
+                restaurante en la ruta. Puedes inscribirte aquí para promocionar
+                tu negocio.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Layout>
   );
 }

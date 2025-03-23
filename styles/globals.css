@@ -71,7 +71,8 @@ a {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

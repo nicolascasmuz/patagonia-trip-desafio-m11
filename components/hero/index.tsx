@@ -3,6 +3,7 @@ import styles from "./hero.module.css";
 import mapboxgl from "mapbox-gl";
 import { getOwners } from "lib/api";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Card from "components/card";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoibmljb2xhc2Nhc211eiIsImEiOiJjbGlnazg2cjExZTdvM21tcWl6eGU5bDM0In0.EtaC4N7nb_NuwfddaKZaow";
@@ -10,7 +11,9 @@ mapboxgl.accessToken = MAPBOX_TOKEN;
 
 export default function Hero() {
   const [bestOwners, setBestOwners] = useState(null);
+  const [owner, setOwner] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [display, setDisplay] = useState(false);
 
   async function pullOwners() {
     const res = await getOwners();
@@ -42,11 +45,13 @@ export default function Hero() {
         marker.getElement().addEventListener("click", async (e) => {
           const { lng, lat } = marker._lngLat;
 
-          const selectedPetOnMap = bestOwners.find((p) => {
+          const selectedOwnerOnMap = bestOwners.find((p) => {
             return p.lng == lng && p.lat == lat;
           });
 
-          console.log("selectedPetOnMap: ", selectedPetOnMap);
+          console.log("selectedOwnerOnMap: ", selectedOwnerOnMap);
+          setOwner(selectedOwnerOnMap);
+          setDisplay(true);
 
           /* try {
             await selectMissingPet(selectedPetOnMap);
@@ -66,10 +71,16 @@ export default function Hero() {
 
   return (
     <section className={styles["hero"]}>
-      <div className={styles["map-container"]}>
+      <div
+        className={styles["map-container"]}
+        style={{ display: display ? "none" : "block" }}
+      >
         <div ref={mapContainerRef} className={styles["map"]} />
       </div>
-      <div className={styles["column-overlay"]}>
+      <div
+        className={styles["column-overlay"]}
+        style={{ display: display ? "none" : "center" }}
+      >
         <div className="container">
           <h2>
             Vive la experiencia de <br />
@@ -90,6 +101,17 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <Card
+        display={{ display: display ? "block" : "none" }}
+        picURL={owner?.picURL}
+        business={owner?.business}
+        type={owner?.type}
+        services={owner?.services}
+        other={owner?.other}
+        email={owner?.email}
+        lat={owner?.lat}
+        lng={owner?.lng}
+      />
     </section>
   );
 }

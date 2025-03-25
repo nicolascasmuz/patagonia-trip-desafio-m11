@@ -5,13 +5,9 @@ import styles from "./layout.module.css";
 export default function Layout(props) {
   return (
     <div className={styles.div}>
-      <div className="container">
-        <Header theme={props.theme} />
-      </div>
+      <Header theme={props.theme} />
       <div>{props.children}</div>
-      <div className="container">
-        <Footer theme={props.theme} />
-      </div>
+      <Footer theme={props.theme} />
     </div>
   );
 }

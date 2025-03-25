@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://patagonia-trip-backend.vercel.app/api";
 
 export async function fetchAPI(input?: RequestInfo, options?) {
   const url = BASE_URL + input;
@@ -6,29 +6,6 @@ export async function fetchAPI(input?: RequestInfo, options?) {
 
   const response = await fetch(url, options);
   res = response;
-
-  /* if (input == "/me" && options?.method == "PATCH") {
-    const response = await fetch(url, options);
-    res = response;
-  }
-  if (input == "/me/address" && options?.method == "PATCH") {
-    const response = await fetch(url, options);
-    res = response;
-  }
-  if (input == "/me") {
-    const state = localStorage.getItem("saved-state");
-    const parsedState = JSON.parse(state);
-
-    const response = await fetch(url, {
-      headers: {
-        authorization: `bearer ${parsedState.token}`,
-      },
-    });
-    res = response;
-  } else {
-    const response = await fetch(url, options);
-    res = response;
-  } */
 
   if (res.status >= 200 && res.status < 300) {
     const data = await res.json();

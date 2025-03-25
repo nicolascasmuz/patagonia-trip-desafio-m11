@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import img from "next/img";
 import styles from "./features.module.css";
-import place1 from "../../resources/foto-01.webp";
-import place2 from "../../resources/foto-02.webp";
-import place3 from "../../resources/foto-03.webp";
-import place4 from "../../resources/foto-04.webp";
-import place5 from "../../resources/foto-05.webp";
 import { getOwners } from "lib/api";
 
 export default function FeaturedPlaces() {

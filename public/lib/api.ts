@@ -7,29 +7,6 @@ export async function fetchAPI(input?: RequestInfo, options?) {
   const response = await fetch(url, options);
   res = response;
 
-  /* if (input == "/me" && options?.method == "PATCH") {
-    const response = await fetch(url, options);
-    res = response;
-  }
-  if (input == "/me/address" && options?.method == "PATCH") {
-    const response = await fetch(url, options);
-    res = response;
-  }
-  if (input == "/me") {
-    const state = localStorage.getItem("saved-state");
-    const parsedState = JSON.parse(state);
-
-    const response = await fetch(url, {
-      headers: {
-        authorization: `bearer ${parsedState.token}`,
-      },
-    });
-    res = response;
-  } else {
-    const response = await fetch(url, options);
-    res = response;
-  } */
-
   if (res.status >= 200 && res.status < 300) {
     const data = await res.json();
     console.log("data api: ", data);

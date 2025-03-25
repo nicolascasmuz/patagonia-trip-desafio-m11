@@ -2,15 +2,15 @@ import Footer from "components/footer";
 import Header from "components/header";
 import styles from "./layout.module.css";
 
-export default function Layout({ children }: any) {
+export default function Layout(props) {
   return (
     <div className={styles.div}>
       <div className="container">
-        <Header />
+        <Header theme={props.theme} />
       </div>
-      <div>{children}</div>
+      <div>{props.children}</div>
       <div className="container">
-        <Footer />
+        <Footer theme={props.theme} />
       </div>
     </div>
   );

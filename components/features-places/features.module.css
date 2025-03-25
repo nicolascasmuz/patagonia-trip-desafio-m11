@@ -6,7 +6,7 @@
 .featured-places h2 {
   text-align: center;
   margin-bottom: 50px;
-  color: var(--dark);
+  color: var(--background);
 }
 
 .grid-container {

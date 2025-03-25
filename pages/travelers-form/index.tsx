@@ -1,8 +1,11 @@
 import Layout from "components/layout";
 import styles from "./travelers-form.module.css";
+import { useRouter } from "next/router";
 import { CreateTraveler } from "lib/api";
 
 export default function TravelersForm() {
+  const router = useRouter();
+
   const HandleSubmit = async (e) => {
     e.preventDefault();
 
@@ -12,11 +15,16 @@ export default function TravelersForm() {
       vehicle: e.target.vehicle.value,
     };
 
-    CreateTraveler(newData);
+    try {
+      CreateTraveler(newData);
+      router.push("/traveler-message-sent");
+    } catch (error) {
+      console.error({ error });
+    }
   };
 
   return (
-    <Layout>
+    <Layout theme={true}>
       <section className={styles["travelers-form"] + " section"}>
         <div className="container">
           <h2>Disfruta de tu viaje sin preocupaciones</h2>

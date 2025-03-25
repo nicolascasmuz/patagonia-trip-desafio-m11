@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./owners-form.module.css";
+import { useRouter } from "next/router";
 import { CreateOwner } from "lib/api";
 import { Dropzone } from "dropzone";
 import uploadPic from "resources/upload-pic.png";
@@ -14,6 +15,7 @@ const MAPBOX_TOKEN =
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 export default function OwnersForm() {
+  const router = useRouter();
   const [picFile, setPicFile] = useState(null);
   const [preview, setPreview] = useState(uploadPic);
 
@@ -67,7 +69,12 @@ export default function OwnersForm() {
 
     console.log("newData: ", newData);
 
-    CreateOwner(newData);
+    try {
+      CreateOwner(newData);
+      router.push("/owner-message-sent");
+    } catch (error) {
+      console.error({ error });
+    }
   };
 
   return (

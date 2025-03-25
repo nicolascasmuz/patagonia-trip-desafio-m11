@@ -1,0 +1,41 @@
+.footer {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.proyect-logo {
+  width: 50px;
+  height: auto;
+}
+
+.footer__text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__text-container li {
+  list-style: none;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socials li {
+  list-style: none;
+}

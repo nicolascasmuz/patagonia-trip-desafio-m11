@@ -1,0 +1,17 @@
+.travelers-form h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.travelers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .travelers-grid {
+    grid-template-columns: 1fr;
+  }
+}

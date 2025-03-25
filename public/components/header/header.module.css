@@ -1,0 +1,21 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: space-between;
+}
+
+.proyect-logo {
+  width: 50px;
+  height: auto;
+}
+
+.proyect-name {
+  text-transform: uppercase;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 20px;
+}

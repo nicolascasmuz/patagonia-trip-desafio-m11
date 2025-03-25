@@ -1,0 +1,29 @@
+.general-comp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  min-height: calc(100vh - 260px);
+  overflow: auto;
+  padding: 40px 60px;
+  height: 100%;
+}
+
+.general-section__wrapper {
+  display: grid;
+  justify-items: center;
+  gap: 65px;
+}
+
+.general-section__wrapper button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}

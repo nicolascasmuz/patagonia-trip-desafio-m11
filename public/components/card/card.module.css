@@ -1,0 +1,85 @@
+.card {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+}
+
+.column-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 25, 0.9), rgba(0, 0, 0, 0));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.column-overlay .business-pic {
+  margin-bottom: 20px;
+}
+
+.column-overlay ul {
+  padding: 15px;
+}
+
+.column-overlay li {
+  margin-bottom: 10px;
+  max-width: 500px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--foreground);
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .column-overlay {
+    width: 80%;
+  }
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container:hover ~ .column-overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.business-pic-container {
+  width: 500px;
+  height: 300px;
+}
+
+.business-pic {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

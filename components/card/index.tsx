@@ -46,8 +46,8 @@ export default function Card(props) {
             width={335} */
             />
           </div>
+          <h2>{props.business}</h2>
           <ul>
-            <li>{props.business}</li>
             <li>Tipo de establecimiento: {props.type}</li>
             <li>Servicios: {props.services}</li>
             <li>Detalles: {props.other}</li>

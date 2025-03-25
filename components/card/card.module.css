@@ -31,6 +31,7 @@
 
 .column-overlay li {
   margin-bottom: 10px;
+  max-width: 500px;
 }
 
 .buttons {

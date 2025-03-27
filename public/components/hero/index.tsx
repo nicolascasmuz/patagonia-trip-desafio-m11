@@ -34,6 +34,13 @@ export default function Hero() {
       });
     }
 
+    mapRef.current.scrollZoom.disable();
+    mapRef.current.boxZoom.disable();
+    mapRef.current.doubleClickZoom.disable();
+    mapRef.current.touchZoomRotate.disable();
+    mapRef.current.dragPan.disable();
+    mapRef.current.dragRotate.disable();
+
     if (bestOwners) {
       for (const owner of bestOwners) {
         const { lat, lng } = owner;
@@ -52,12 +59,6 @@ export default function Hero() {
           console.log("selectedOwnerOnMap: ", selectedOwnerOnMap);
           setOwner(selectedOwnerOnMap);
           setDisplay(true);
-
-          /* try {
-            await selectMissingPet(selectedPetOnMap);
-          } catch (error) {
-            console.error(error);
-          } */
         });
       }
     } else {

@@ -10,8 +10,6 @@ const MAPBOX_TOKEN =
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 export default function Card(props) {
-  // const [loaded, setLoaded] = useState(false);
-
   const mapContainerRef = useRef(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
@@ -20,11 +18,18 @@ export default function Card(props) {
       mapRef.current = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [props.lng - 0.2, props.lat],
-        zoom: 10,
+        center: [props.lng - 0.1, props.lat],
+        zoom: 11,
       });
 
-      const marker = new mapboxgl.Marker({ color: "#0abde3" })
+      mapRef.current.scrollZoom.disable();
+      mapRef.current.boxZoom.disable();
+      mapRef.current.doubleClickZoom.disable();
+      mapRef.current.touchZoomRotate.disable();
+      mapRef.current.dragPan.disable();
+      mapRef.current.dragRotate.disable();
+
+      new mapboxgl.Marker({ color: "#0abde3" })
         .setLngLat([props.lng, props.lat])
         .addTo(mapRef.current);
     }
@@ -42,8 +47,6 @@ export default function Card(props) {
               src={props.picURL}
               alt="business-pic"
               className={styles["business-pic"]}
-              /* height={180}
-            width={335} */
             />
           </div>
           <h2>{props.business}</h2>

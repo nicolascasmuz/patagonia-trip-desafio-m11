@@ -18,8 +18,8 @@ export default function Mision() {
             inhospita es capaz de ocasionar.
           </p>
           <p>
-            También promovemos el desarrollo y la proli- feración de comercios y
-            demás estableci- mientos de este territorio para fomentar su
+            También promovemos el desarrollo y la proliferación de comercios y
+            demás establecimientos de este territorio para fomentar su
             crecimiento económico.
           </p>
         </div>

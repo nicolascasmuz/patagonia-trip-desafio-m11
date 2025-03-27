@@ -13,11 +13,13 @@ export default function Header(props) {
         color: props.theme ? "var(--background)" : "var(--foreground)",
       }}
     >
-      <Image
-        src={logotipo}
-        alt="Patagonia Trip Logo"
-        className={styles["proyect-logo"]}
-      />
+      <a href="/">
+        <Image
+          src={logotipo}
+          alt="Patagonia Trip Logo"
+          className={styles["proyect-logo"]}
+        />
+      </a>
       <h1 className={styles["proyect-name"]}>Patagonia Trip</h1>
     </header>
   );

@@ -16,11 +16,11 @@ export default function Header(props) {
       <a href="/">
         <Image
           src={logotipo}
-          alt="Patagonia Trip Logo"
+          alt="Patagoning Logo"
           className={styles["proyect-logo"]}
         />
       </a>
-      <h1 className={styles["proyect-name"]}>Patagonia Trip</h1>
+      <h1 className={styles["proyect-name"]}>Patagoning</h1>
     </header>
   );
 }

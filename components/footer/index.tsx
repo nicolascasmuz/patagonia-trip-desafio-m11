@@ -18,11 +18,11 @@ export default function Footer(props) {
     >
       <Image
         src={logotipo}
-        alt="Patagonia Trip Logo"
+        alt="Patagoning Logo"
         className={styles["proyect-logo"]}
       />
       <div className={styles["footer__text-container"]}>
-        <p>© 2025 Patagonia Trip all rights reserved</p>
+        <p>© 2025 Patagoning all rights reserved</p>
         <ul>
           Desarrolladores:
           <li>Nicolás Casmuz</li>
@@ -34,7 +34,7 @@ export default function Footer(props) {
           <a href="#" target="_blank">
             <Image
               src={instagram}
-              alt="Patagonia Trip Logo"
+              alt="Patagoning Logo"
               className={styles["proyect-logo"]}
             />
           </a>
@@ -43,7 +43,7 @@ export default function Footer(props) {
           <a href="#" target="_blank">
             <Image
               src={twitter}
-              alt="Patagonia Trip Logo"
+              alt="Patagoning Logo"
               className={styles["proyect-logo"]}
             />
           </a>
@@ -52,7 +52,7 @@ export default function Footer(props) {
           <a href="#" target="_blank">
             <Image
               src={facebook}
-              alt="Patagonia Trip Logo"
+              alt="Patagoning Logo"
               className={styles["proyect-logo"]}
             />
           </a>

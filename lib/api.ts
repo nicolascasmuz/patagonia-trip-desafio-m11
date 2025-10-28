@@ -1,4 +1,5 @@
 const BASE_URL = "https://patagonia-trip-backend.vercel.app/api";
+// const BASE_URL = "http://localhost:3000/api";
 
 export async function fetchAPI(input?: RequestInfo, options?) {
   const url = BASE_URL + input;
